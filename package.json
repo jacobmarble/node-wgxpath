@@ -1,7 +1,7 @@
 {
   "name": "wgxpath",
   "description": "Wicked Good XPath",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "url": "http://code.google.com/p/wicked-good-xpath/",
   "homepage": "https://github.com/jacobmarble/node-wgxpath",
   "author": {

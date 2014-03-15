@@ -47,3 +47,19 @@ function Ob(a){for(var b=[];"["==B(a.a);){C(a.a);Y(a,"Missing predicate expressi
 function Z(a,b){if(0==b)if(a instanceof I)b=4;else if("string"==typeof a)b=2;else if("number"==typeof a)b=1;else if("boolean"==typeof a)b=3;else throw Error("Unexpected evaluation result.");if(2!=b&&1!=b&&3!=b&&!(a instanceof I))throw Error("value could not be converted to the specified type");this.resultType=b;var c;switch(b){case 2:this.stringValue=a instanceof I?Ya(a):""+a;break;case 1:this.numberValue=a instanceof I?+Ya(a):+a;break;case 3:this.booleanValue=a instanceof I?0<a.i:!!a;break;case 4:case 5:case 6:case 7:var d=
 N(a);c=[];for(var e=O(d);e;e=O(d))c.push(e instanceof A?e.a:e);this.snapshotLength=a.i;this.invalidIteratorState=!1;break;case 8:case 9:d=Xa(a);this.singleNodeValue=d instanceof A?d.a:d;break;default:throw Error("Unknown XPathResult type.");}var f=0;this.iterateNext=function(){if(4!=b&&5!=b)throw Error("iterateNext called with wrong result type");return f>=c.length?null:c[f++]};this.snapshotItem=function(a){if(6!=b&&7!=b)throw Error("snapshotItem called with wrong result type");return a>=c.length||
 0>a?null:c[a]}}Z.ANY_TYPE=0;Z.NUMBER_TYPE=1;Z.STRING_TYPE=2;Z.BOOLEAN_TYPE=3;Z.UNORDERED_NODE_ITERATOR_TYPE=4;Z.ORDERED_NODE_ITERATOR_TYPE=5;Z.UNORDERED_NODE_SNAPSHOT_TYPE=6;Z.ORDERED_NODE_SNAPSHOT_TYPE=7;Z.ANY_UNORDERED_NODE_TYPE=8;Z.FIRST_ORDERED_NODE_TYPE=9;function Qb(a){this.lookupNamespaceURI=$a(a)};function Rb(a){a=a||l;var b=a.document;b.evaluate||(a.XPathResult=Z,b.evaluate=function(a,b,e,f){return(new Pb(a,e)).evaluate(b,f)},b.createExpression=function(a,b){return new Pb(a,b)},b.createNSResolver=function(a){return new Qb(a)})}var Sb=["wgxpath","install"],$=l;Sb[0]in $||!$.execScript||$.execScript("var "+Sb[0]);for(var Tb;Sb.length&&(Tb=Sb.shift());)Sb.length||void 0===Rb?$=$[Tb]?$[Tb]:$[Tb]={}:$[Tb]=Rb;})()
+
+// Export for Node.js.
+module.exports.install = wgxpath.install;
+module.exports.XPathResultType = {
+  ANY_TYPE: 0,
+  NUMBER_TYPE: 1,
+  STRING_TYPE: 2,
+  BOOLEAN_TYPE: 3,
+  UNORDERED_NODE_ITERATOR_TYPE: 4,
+  ORDERED_NODE_ITERATOR_TYPE: 5,
+  UNORDERED_NODE_SNAPSHOT_TYPE: 6,
+  ORDERED_NODE_SNAPSHOT_TYPE: 7,
+  ANY_UNORDERED_NODE_TYPE: 8,
+  FIRST_ORDERED_NODE_TYPE: 9
+};
+
