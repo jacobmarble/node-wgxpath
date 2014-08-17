@@ -8,7 +8,7 @@ Version
 
 `0.x.y`: `x` refers to the Google SVN revision when `wgxpath.install.js` was built; `y` refers to any improvements to this package.
 
-I'm pretty lazy, so I didn't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](http://code.google.com/p/wicked-good-xpath/downloads/detail?name=wgxpath.install.js) is updated, I'll update this package.
+I'm pretty lazy, so I didn't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](https://code.google.com/p/wicked-good-xpath/source/browse/trunk/wgxpath.install.js) is updated, I'll update this package.
 
 Installation
 ------------
