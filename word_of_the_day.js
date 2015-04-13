@@ -2,7 +2,7 @@ var wgxpath = require('wgxpath');
 var jsdom = require('jsdom');
 
 var url = 'http://www.merriam-webster.com/word-of-the-day/';
-var expressionString = '//*[@id="content"]/div[3]/ul/li[1]/strong';
+var expressionString = '//*/div[@class="wod_headword"]';
 
 jsdom.env({
   url: url,

@@ -1,14 +1,14 @@
 node-wgxpath
 ============
 
-[Wicked Good XPath](http://code.google.com/p/wicked-good-xpath/) is a fast implementation of [document.createExpression](https://developer.mozilla.org/en-US/docs/DOM/document.createExpression) and [document.evaluate](https://developer.mozilla.org/en-US/docs/DOM/document.evaluate) ([DOM3-XPath](http://www.w3.org/TR/2004/NOTE-DOM-Level-3-XPath-20040226/DOM3-XPath.html)) in pure Javascript.
+[Wicked Good XPath](https://github.com/google/wicked-good-xpath) is a fast implementation of [document.createExpression](https://developer.mozilla.org/en-US/docs/DOM/document.createExpression) and [document.evaluate](https://developer.mozilla.org/en-US/docs/DOM/document.evaluate) ([DOM3-XPath](http://www.w3.org/TR/2004/NOTE-DOM-Level-3-XPath-20040226/DOM3-XPath.html)) in pure Javascript.
 
 Version
 ------
 
-`0.x.y`: `x` refers to the Google SVN revision when `wgxpath.install.js` was built; `y` refers to any improvements to this package.
+`x.y.z`: `x.y` refers to the Wicked Good XPath revision when `wgxpath.install.js` was built; `z` refers to any improvements to this package.
 
-I'm pretty lazy, so I didn't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](https://code.google.com/p/wicked-good-xpath/source/browse/trunk/wgxpath.install.js) is updated, I'll update this package.
+I'm pretty lazy, so I didn't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](https://github.com/google/wicked-good-xpath/releases/latest) is updated, I'll update this package.
 
 Installation
 ------------

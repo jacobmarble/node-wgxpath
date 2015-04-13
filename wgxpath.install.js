@@ -1,53 +1,437 @@
-(function(){function h(a){return function(){return this[a]}}function k(a){return function(){return a}}var m=this;
+(function(){function h(a){return function(){return this[a]}}function l(a){return function(){return a}}var m=this;
 function aa(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
-else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function n(a){return"string"==typeof a}function ba(a,b,c){return a.call.apply(a.bind,arguments)}function ca(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}
-function q(a,b,c){q=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ba:ca;return q.apply(null,arguments)}function da(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}function r(a){var b=s;function c(){}c.prototype=b.prototype;a.u=b.prototype;a.prototype=new c;a.t=function(a,c,f){return b.prototype[c].apply(a,Array.prototype.slice.call(arguments,2))}}
-Function.prototype.bind=Function.prototype.bind||function(a,b){if(1<arguments.length){var c=Array.prototype.slice.call(arguments,1);c.unshift(this,a);return q.apply(null,c)}return q(this,a)};function t(a,b,c){this.a=a;this.b=b||1;this.d=c||1};function ea(a,b){return a<b?-1:a>b?1:0};var u=Array.prototype,fa=u.indexOf?function(a,b,c){return u.indexOf.call(a,b,c)}:function(a,b,c){c=null==c?0:0>c?Math.max(0,a.length+c):c;if(n(a))return n(b)&&1==b.length?a.indexOf(b,c):-1;for(;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},v=u.forEach?function(a,b,c){u.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=n(a)?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)},ga=u.filter?function(a,b,c){return u.filter.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=[],f=0,g=n(a)?
-a.split(""):a,l=0;l<d;l++)if(l in g){var p=g[l];b.call(c,p,l,a)&&(e[f++]=p)}return e},w=u.reduce?function(a,b,c,d){d&&(b=q(b,d));return u.reduce.call(a,b,c)}:function(a,b,c,d){var e=c;v(a,function(c,g){e=b.call(d,e,c,g,a)});return e},ha=u.some?function(a,b,c){return u.some.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=n(a)?a.split(""):a,f=0;f<d;f++)if(f in e&&b.call(c,e[f],f,a))return!0;return!1};
-function ia(a,b){var c;n:{c=a.length;for(var d=n(a)?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){c=e;break n}c=-1}return 0>c?null:n(a)?a.charAt(c):a[c]}function ja(a){return u.concat.apply(u,arguments)}function ka(a,b,c){return 2>=arguments.length?u.slice.call(a,b):u.slice.call(a,b,c)};var y;n:{var la=m.navigator;if(la){var ma=la.userAgent;if(ma){y=ma;break n}}y=""}function z(a){return-1!=y.indexOf(a)};var na=z("Opera")||z("OPR"),A=z("Trident")||z("MSIE"),oa=z("Gecko")&&-1==y.toLowerCase().indexOf("webkit")&&!(z("Trident")||z("MSIE")),pa=-1!=y.toLowerCase().indexOf("webkit");function qa(){var a=m.document;return a?a.documentMode:void 0}
-var ra=function(){var a="",b;if(na&&m.opera)return a=m.opera.version,"function"==aa(a)?a():a;oa?b=/rv\:([^\);]+)(\)|;)/:A?b=/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/:pa&&(b=/WebKit\/(\S+)/);b&&(a=(a=b.exec(y))?a[1]:"");return A&&(b=qa(),b>parseFloat(a))?String(b):a}(),sa={};
-function ta(a){if(!sa[a]){for(var b=0,c=String(ra).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),d=String(a).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",l=d[f]||"",p=RegExp("(\\d*)(\\D*)","g"),x=RegExp("(\\d*)(\\D*)","g");do{var C=p.exec(g)||["","",""],$=x.exec(l)||["","",""];if(0==C[0].length&&0==$[0].length)break;b=ea(0==C[1].length?0:parseInt(C[1],10),0==$[1].length?0:parseInt($[1],10))||ea(0==C[2].length,0==$[2].length)||ea(C[2],
-$[2])}while(0==b)}sa[a]=0<=b}}var ua=m.document,va=ua&&A?qa()||("CSS1Compat"==ua.compatMode?parseInt(ra,10):5):void 0;var B=A&&!(A&&9<=va),wa=A&&!(A&&8<=va);function D(a,b,c,d){this.a=a;this.nodeName=c;this.nodeValue=d;this.nodeType=2;this.parentNode=this.ownerElement=b}function xa(a,b){var c=wa&&"href"==b.nodeName?a.getAttribute(b.nodeName,2):b.nodeValue;return new D(b,a,b.nodeName,c)};function ya(a){this.b=a;this.a=0}function za(a){a=a.match(Aa);for(var b=0;b<a.length;b++)Ba.test(a[b])&&a.splice(b,1);return new ya(a)}var Aa=RegExp("\\$?(?:(?![0-9-])[\\w-]+:)?(?![0-9-])[\\w-]+|\\/\\/|\\.\\.|::|\\d+(?:\\.\\d*)?|\\.\\d+|\"[^\"]*\"|'[^']*'|[!<>]=|\\s+|.","g"),Ba=/^\s/;function E(a,b){return a.b[a.a+(b||0)]}function F(a){return a.b[a.a++]}function Ca(a){return a.b.length<=a.a};!oa&&!A||A&&A&&9<=va||oa&&ta("1.9.1");A&&ta("9");function Da(a,b){if(a.contains&&1==b.nodeType)return a==b||a.contains(b);if("undefined"!=typeof a.compareDocumentPosition)return a==b||Boolean(a.compareDocumentPosition(b)&16);for(;b&&a!=b;)b=b.parentNode;return b==a}
-function Ea(a,b){if(a==b)return 0;if(a.compareDocumentPosition)return a.compareDocumentPosition(b)&2?1:-1;if(A&&!(A&&9<=va)){if(9==a.nodeType)return-1;if(9==b.nodeType)return 1}if("sourceIndex"in a||a.parentNode&&"sourceIndex"in a.parentNode){var c=1==a.nodeType,d=1==b.nodeType;if(c&&d)return a.sourceIndex-b.sourceIndex;var e=a.parentNode,f=b.parentNode;return e==f?Fa(a,b):!c&&Da(e,b)?-1*Ga(a,b):!d&&Da(f,a)?Ga(b,a):(c?a.sourceIndex:e.sourceIndex)-(d?b.sourceIndex:f.sourceIndex)}d=9==a.nodeType?a:
-a.ownerDocument||a.document;c=d.createRange();c.selectNode(a);c.collapse(!0);d=d.createRange();d.selectNode(b);d.collapse(!0);return c.compareBoundaryPoints(m.Range.START_TO_END,d)}function Ga(a,b){var c=a.parentNode;if(c==b)return-1;for(var d=b;d.parentNode!=c;)d=d.parentNode;return Fa(d,a)}function Fa(a,b){for(var c=b;c=c.previousSibling;)if(c==a)return-1;return 1};function G(a){var b=null,c=a.nodeType;1==c&&(b=a.textContent,b=void 0==b||null==b?a.innerText:b,b=void 0==b||null==b?"":b);if("string"!=typeof b)if(B&&"title"==a.nodeName.toLowerCase()&&1==c)b=a.text;else if(9==c||1==c){a=9==c?a.documentElement:a.firstChild;for(var c=0,d=[],b="";a;){do 1!=a.nodeType&&(b+=a.nodeValue),B&&"title"==a.nodeName.toLowerCase()&&(b+=a.text),d[c++]=a;while(a=a.firstChild);for(;c&&!(a=d[--c].nextSibling););}}else b=a.nodeValue;return""+b}
-function H(a,b,c){if(null===b)return!0;try{if(!a.getAttribute)return!1}catch(d){return!1}wa&&"class"==b&&(b="className");return null==c?!!a.getAttribute(b):a.getAttribute(b,2)==c}function Ha(a,b,c,d,e){return(B?Ia:Ja).call(null,a,b,n(c)?c:null,n(d)?d:null,e||new I)}
-function Ia(a,b,c,d,e){if(a instanceof J||8==a.b||c&&null===a.b){var f=b.all;if(!f)return e;a=Ka(a);if("*"!=a&&(f=b.getElementsByTagName(a),!f))return e;if(c){for(var g=[],l=0;b=f[l++];)H(b,c,d)&&g.push(b);f=g}for(l=0;b=f[l++];)"*"==a&&"!"==b.tagName||K(e,b);return e}La(a,b,c,d,e);return e}
-function Ja(a,b,c,d,e){b.getElementsByName&&d&&"name"==c&&!A?(b=b.getElementsByName(d),v(b,function(b){a.a(b)&&K(e,b)})):b.getElementsByClassName&&d&&"class"==c?(b=b.getElementsByClassName(d),v(b,function(b){b.className==d&&a.a(b)&&K(e,b)})):a instanceof L?La(a,b,c,d,e):b.getElementsByTagName&&(b=b.getElementsByTagName(a.d()),v(b,function(a){H(a,c,d)&&K(e,a)}));return e}
-function Ma(a,b,c,d,e){var f;if((a instanceof J||8==a.b||c&&null===a.b)&&(f=b.childNodes)){var g=Ka(a);if("*"!=g&&(f=ga(f,function(a){return a.tagName&&a.tagName.toLowerCase()==g}),!f))return e;c&&(f=ga(f,function(a){return H(a,c,d)}));v(f,function(a){"*"==g&&("!"==a.tagName||"*"==g&&1!=a.nodeType)||K(e,a)});return e}return Na(a,b,c,d,e)}function Na(a,b,c,d,e){for(b=b.firstChild;b;b=b.nextSibling)H(b,c,d)&&a.a(b)&&K(e,b);return e}
-function La(a,b,c,d,e){for(b=b.firstChild;b;b=b.nextSibling)H(b,c,d)&&a.a(b)&&K(e,b),La(a,b,c,d,e)}function Ka(a){if(a instanceof L){if(8==a.b)return"!";if(null===a.b)return"*"}return a.d()};function I(){this.b=this.a=null;this.i=0}function Oa(a){this.d=a;this.a=this.b=null}function Pa(a,b){if(!a.a)return b;if(!b.a)return a;for(var c=a.a,d=b.a,e=null,f=null,g=0;c&&d;){var f=c.d,l=d.d;f==l||f instanceof D&&l instanceof D&&f.a==l.a?(f=c,c=c.a,d=d.a):0<Ea(c.d,d.d)?(f=d,d=d.a):(f=c,c=c.a);(f.b=e)?e.a=f:a.a=f;e=f;g++}for(f=c||d;f;)f.b=e,e=e.a=f,g++,f=f.a;a.b=e;a.i=g;return a}function Qa(a,b){var c=new Oa(b);c.a=a.a;a.b?a.a.b=c:a.a=a.b=c;a.a=c;a.i++}
-function K(a,b){var c=new Oa(b);c.b=a.b;a.a?a.b.a=c:a.a=a.b=c;a.b=c;a.i++}function Ra(a){return(a=a.a)?a.d:null}function Sa(a){return(a=Ra(a))?G(a):""}function M(a,b){return new Ta(a,!!b)}function Ta(a,b){this.d=a;this.b=(this.c=b)?a.b:a.a;this.a=null}function N(a){var b=a.b;if(null==b)return null;var c=a.a=b;a.b=a.c?b.b:b.a;return c.d};function Ua(a){switch(a.nodeType){case 1:return da(Va,a);case 9:return Ua(a.documentElement);case 11:case 10:case 6:case 12:return Wa;default:return a.parentNode?Ua(a.parentNode):Wa}}function Wa(){return null}function Va(a,b){if(a.prefix==b)return a.namespaceURI||"http://www.w3.org/1999/xhtml";var c=a.getAttributeNode("xmlns:"+b);return c&&c.specified?c.value||null:a.parentNode&&9!=a.parentNode.nodeType?Va(a.parentNode,b):null};function s(a){this.g=a;this.b=this.f=!1;this.d=null}function O(a){return"\n  "+a.toString().split("\n").join("\n  ")}function Xa(a,b){a.f=b}function Ya(a,b){a.b=b}function P(a,b){var c=a.a(b);return c instanceof I?+Sa(c):+c}function Q(a,b){var c=a.a(b);return c instanceof I?Sa(c):""+c}function R(a,b){var c=a.a(b);return c instanceof I?!!c.i:!!c};function Za(a,b,c){s.call(this,a.g);this.c=a;this.e=b;this.j=c;this.f=b.f||c.f;this.b=b.b||c.b;this.c==$a&&(c.b||c.f||4==c.g||0==c.g||!b.d?b.b||b.f||4==b.g||0==b.g||!c.d||(this.d={name:c.d.name,l:b}):this.d={name:b.d.name,l:c})}r(Za);
-function S(a,b,c,d,e){b=b.a(d);c=c.a(d);var f;if(b instanceof I&&c instanceof I){e=M(b);for(d=N(e);d;d=N(e))for(b=M(c),f=N(b);f;f=N(b))if(a(G(d),G(f)))return!0;return!1}if(b instanceof I||c instanceof I){b instanceof I?e=b:(e=c,c=b);e=M(e);b=typeof c;for(d=N(e);d;d=N(e)){switch(b){case "number":d=+G(d);break;case "boolean":d=!!G(d);break;case "string":d=G(d);break;default:throw Error("Illegal primitive type for comparison.");}if(a(d,c))return!0}return!1}return e?"boolean"==typeof b||"boolean"==typeof c?
-a(!!b,!!c):"number"==typeof b||"number"==typeof c?a(+b,+c):a(b,c):a(+b,+c)}Za.prototype.a=function(a){return this.c.k(this.e,this.j,a)};Za.prototype.toString=function(){var a="Binary Expression: "+this.c,a=a+O(this.e);return a+=O(this.j)};function ab(a,b,c,d){this.a=a;this.p=b;this.g=c;this.k=d}ab.prototype.toString=h("a");var bb={};function T(a,b,c,d){if(bb.hasOwnProperty(a))throw Error("Binary operator already created: "+a);a=new ab(a,b,c,d);return bb[a.toString()]=a}
-T("div",6,1,function(a,b,c){return P(a,c)/P(b,c)});T("mod",6,1,function(a,b,c){return P(a,c)%P(b,c)});T("*",6,1,function(a,b,c){return P(a,c)*P(b,c)});T("+",5,1,function(a,b,c){return P(a,c)+P(b,c)});T("-",5,1,function(a,b,c){return P(a,c)-P(b,c)});T("<",4,2,function(a,b,c){return S(function(a,b){return a<b},a,b,c)});T(">",4,2,function(a,b,c){return S(function(a,b){return a>b},a,b,c)});T("<=",4,2,function(a,b,c){return S(function(a,b){return a<=b},a,b,c)});
-T(">=",4,2,function(a,b,c){return S(function(a,b){return a>=b},a,b,c)});var $a=T("=",3,2,function(a,b,c){return S(function(a,b){return a==b},a,b,c,!0)});T("!=",3,2,function(a,b,c){return S(function(a,b){return a!=b},a,b,c,!0)});T("and",2,2,function(a,b,c){return R(a,c)&&R(b,c)});T("or",1,2,function(a,b,c){return R(a,c)||R(b,c)});function cb(a,b){if(b.a.length&&4!=a.g)throw Error("Primary expression must evaluate to nodeset if filter has predicate(s).");s.call(this,a.g);this.c=a;this.e=b;this.f=a.f;this.b=a.b}r(cb);cb.prototype.a=function(a){a=this.c.a(a);return db(this.e,a)};cb.prototype.toString=function(){var a;a="Filter:"+O(this.c);return a+=O(this.e)};function eb(a,b){if(b.length<a.o)throw Error("Function "+a.h+" expects at least"+a.o+" arguments, "+b.length+" given");if(null!==a.n&&b.length>a.n)throw Error("Function "+a.h+" expects at most "+a.n+" arguments, "+b.length+" given");a.s&&v(b,function(b,d){if(4!=b.g)throw Error("Argument "+d+" to function "+a.h+" is not of type Nodeset: "+b);});s.call(this,a.g);this.e=a;this.c=b;Xa(this,a.f||ha(b,function(a){return a.f}));Ya(this,a.r&&!b.length||a.q&&!!b.length||ha(b,function(a){return a.b}))}r(eb);
-eb.prototype.a=function(a){return this.e.k.apply(null,ja(a,this.c))};eb.prototype.toString=function(){var a="Function: "+this.e;if(this.c.length)var b=w(this.c,function(a,b){return a+O(b)},"Arguments:"),a=a+O(b);return a};function fb(a,b,c,d,e,f,g,l,p){this.h=a;this.g=b;this.f=c;this.r=d;this.q=e;this.k=f;this.o=g;this.n=void 0!==l?l:g;this.s=!!p}fb.prototype.toString=h("h");var gb={};
-function U(a,b,c,d,e,f,g,l){if(gb.hasOwnProperty(a))throw Error("Function already created: "+a+".");gb[a]=new fb(a,b,c,d,!1,e,f,g,l)}U("boolean",2,!1,!1,function(a,b){return R(b,a)},1);U("ceiling",1,!1,!1,function(a,b){return Math.ceil(P(b,a))},1);U("concat",3,!1,!1,function(a,b){var c=ka(arguments,1);return w(c,function(b,c){return b+Q(c,a)},"")},2,null);U("contains",2,!1,!1,function(a,b,c){b=Q(b,a);a=Q(c,a);return-1!=b.indexOf(a)},2);U("count",1,!1,!1,function(a,b){return b.a(a).i},1,1,!0);
-U("false",2,!1,!1,k(!1),0);U("floor",1,!1,!1,function(a,b){return Math.floor(P(b,a))},1);U("id",4,!1,!1,function(a,b){function c(a){if(B){var b=e.all[a];if(b){if(b.nodeType&&a==b.id)return b;if(b.length)return ia(b,function(b){return a==b.id})}return null}return e.getElementById(a)}var d=a.a,e=9==d.nodeType?d:d.ownerDocument,d=Q(b,a).split(/\s+/),f=[];v(d,function(a){a=c(a);!a||0<=fa(f,a)||f.push(a)});f.sort(Ea);var g=new I;v(f,function(a){K(g,a)});return g},1);U("lang",2,!1,!1,k(!1),1);
-U("last",1,!0,!1,function(a){if(1!=arguments.length)throw Error("Function last expects ()");return a.d},0);U("local-name",3,!1,!0,function(a,b){var c=b?Ra(b.a(a)):a.a;return c?c.localName||c.nodeName.toLowerCase():""},0,1,!0);U("name",3,!1,!0,function(a,b){var c=b?Ra(b.a(a)):a.a;return c?c.nodeName.toLowerCase():""},0,1,!0);U("namespace-uri",3,!0,!1,k(""),0,1,!0);U("normalize-space",3,!1,!0,function(a,b){return(b?Q(b,a):G(a.a)).replace(/[\s\xa0]+/g," ").replace(/^\s+|\s+$/g,"")},0,1);
-U("not",2,!1,!1,function(a,b){return!R(b,a)},1);U("number",1,!1,!0,function(a,b){return b?P(b,a):+G(a.a)},0,1);U("position",1,!0,!1,function(a){return a.b},0);U("round",1,!1,!1,function(a,b){return Math.round(P(b,a))},1);U("starts-with",2,!1,!1,function(a,b,c){b=Q(b,a);a=Q(c,a);return 0==b.lastIndexOf(a,0)},2);U("string",3,!1,!0,function(a,b){return b?Q(b,a):G(a.a)},0,1);U("string-length",1,!1,!0,function(a,b){return(b?Q(b,a):G(a.a)).length},0,1);
-U("substring",3,!1,!1,function(a,b,c,d){c=P(c,a);if(isNaN(c)||Infinity==c||-Infinity==c)return"";d=d?P(d,a):Infinity;if(isNaN(d)||-Infinity===d)return"";c=Math.round(c)-1;var e=Math.max(c,0);a=Q(b,a);if(Infinity==d)return a.substring(e);b=Math.round(d);return a.substring(e,c+b)},2,3);U("substring-after",3,!1,!1,function(a,b,c){b=Q(b,a);a=Q(c,a);c=b.indexOf(a);return-1==c?"":b.substring(c+a.length)},2);
-U("substring-before",3,!1,!1,function(a,b,c){b=Q(b,a);a=Q(c,a);a=b.indexOf(a);return-1==a?"":b.substring(0,a)},2);U("sum",1,!1,!1,function(a,b){for(var c=M(b.a(a)),d=0,e=N(c);e;e=N(c))d+=+G(e);return d},1,1,!0);U("translate",3,!1,!1,function(a,b,c,d){b=Q(b,a);c=Q(c,a);var e=Q(d,a);a=[];for(d=0;d<c.length;d++){var f=c.charAt(d);f in a||(a[f]=e.charAt(d))}c="";for(d=0;d<b.length;d++)f=b.charAt(d),c+=f in a?a[f]:f;return c},3);U("true",2,!1,!1,k(!0),0);function L(a,b){this.e=a;this.c=void 0!==b?b:null;this.b=null;switch(a){case "comment":this.b=8;break;case "text":this.b=3;break;case "processing-instruction":this.b=7;break;case "node":break;default:throw Error("Unexpected argument");}}function hb(a){return"comment"==a||"text"==a||"processing-instruction"==a||"node"==a}L.prototype.a=function(a){return null===this.b||this.b==a.nodeType};L.prototype.d=h("e");L.prototype.toString=function(){var a="Kind Test: "+this.e;null===this.c||(a+=O(this.c));return a};function ib(a){s.call(this,3);this.c=a.substring(1,a.length-1)}r(ib);ib.prototype.a=h("c");ib.prototype.toString=function(){return"Literal: "+this.c};function J(a,b){this.h=a.toLowerCase();this.c=b?b.toLowerCase():"http://www.w3.org/1999/xhtml"}J.prototype.a=function(a){var b=a.nodeType;return 1!=b&&2!=b?!1:"*"!=this.h&&this.h!=a.nodeName.toLowerCase()?!1:this.c==(a.namespaceURI?a.namespaceURI.toLowerCase():"http://www.w3.org/1999/xhtml")};J.prototype.d=h("h");J.prototype.toString=function(){return"Name Test: "+("http://www.w3.org/1999/xhtml"==this.c?"":this.c+":")+this.h};function jb(a){s.call(this,1);this.c=a}r(jb);jb.prototype.a=h("c");jb.prototype.toString=function(){return"Number: "+this.c};function kb(a,b){s.call(this,a.g);this.e=a;this.c=b;this.f=a.f;this.b=a.b;if(1==this.c.length){var c=this.c[0];c.m||c.c!=lb||(c=c.j,"*"!=c.d()&&(this.d={name:c.d(),l:null}))}}r(kb);function mb(){s.call(this,4)}r(mb);mb.prototype.a=function(a){var b=new I;a=a.a;9==a.nodeType?K(b,a):K(b,a.ownerDocument);return b};mb.prototype.toString=k("Root Helper Expression");function nb(){s.call(this,4)}r(nb);nb.prototype.a=function(a){var b=new I;K(b,a.a);return b};nb.prototype.toString=k("Context Helper Expression");
-function ob(a){return"/"==a||"//"==a}kb.prototype.a=function(a){var b=this.e.a(a);if(!(b instanceof I))throw Error("Filter expression must evaluate to nodeset.");a=this.c;for(var c=0,d=a.length;c<d&&b.i;c++){var e=a[c],f=M(b,e.c.a),g;if(e.f||e.c!=pb)if(e.f||e.c!=qb)for(g=N(f),b=e.a(new t(g));null!=(g=N(f));)g=e.a(new t(g)),b=Pa(b,g);else g=N(f),b=e.a(new t(g));else{for(g=N(f);(b=N(f))&&(!g.contains||g.contains(b))&&b.compareDocumentPosition(g)&8;g=b);b=e.a(new t(g))}}return b};
-kb.prototype.toString=function(){var a;a="Path Expression:"+O(this.e);if(this.c.length){var b=w(this.c,function(a,b){return a+O(b)},"Steps:");a+=O(b)}return a};function rb(a,b){this.a=a;this.b=!!b}
-function db(a,b,c){for(c=c||0;c<a.a.length;c++)for(var d=a.a[c],e=M(b),f=b.i,g,l=0;g=N(e);l++){var p=a.b?f-l:l+1;g=d.a(new t(g,p,f));if("number"==typeof g)p=p==g;else if("string"==typeof g||"boolean"==typeof g)p=!!g;else if(g instanceof I)p=0<g.i;else throw Error("Predicate.evaluate returned an unexpected type.");if(!p){p=e;g=p.d;var x=p.a;if(!x)throw Error("Next must be called at least once before remove.");var C=x.b,x=x.a;C?C.a=x:g.a=x;x?x.b=C:g.b=C;g.i--;p.a=null}}return b}
-rb.prototype.toString=function(){return w(this.a,function(a,b){return a+O(b)},"Predicates:")};function V(a,b,c,d){s.call(this,4);this.c=a;this.j=b;this.e=c||new rb([]);this.m=!!d;b=this.e;b=0<b.a.length?b.a[0].d:null;a.b&&b&&(a=b.name,a=B?a.toLowerCase():a,this.d={name:a,l:b.l});n:{a=this.e;for(b=0;b<a.a.length;b++)if(c=a.a[b],c.f||1==c.g||0==c.g){a=!0;break n}a=!1}this.f=a}r(V);
-V.prototype.a=function(a){var b=a.a,c=null,c=this.d,d=null,e=null,f=0;c&&(d=c.name,e=c.l?Q(c.l,a):null,f=1);if(this.m)if(this.f||this.c!=sb)if(a=M((new V(tb,new L("node"))).a(a)),b=N(a))for(c=this.k(b,d,e,f);null!=(b=N(a));)c=Pa(c,this.k(b,d,e,f));else c=new I;else c=Ha(this.j,b,d,e),c=db(this.e,c,f);else c=this.k(a.a,d,e,f);return c};V.prototype.k=function(a,b,c,d){a=this.c.d(this.j,a,b,c);return a=db(this.e,a,d)};
-V.prototype.toString=function(){var a;a="Step:"+O("Operator: "+(this.m?"//":"/"));this.c.h&&(a+=O("Axis: "+this.c));a+=O(this.j);if(this.e.a.length){var b=w(this.e.a,function(a,b){return a+O(b)},"Predicates:");a+=O(b)}return a};function ub(a,b,c,d){this.h=a;this.d=b;this.a=c;this.b=d}ub.prototype.toString=h("h");var vb={};function W(a,b,c,d){if(vb.hasOwnProperty(a))throw Error("Axis already created: "+a);b=new ub(a,b,c,!!d);return vb[a]=b}
-W("ancestor",function(a,b){for(var c=new I,d=b;d=d.parentNode;)a.a(d)&&Qa(c,d);return c},!0);W("ancestor-or-self",function(a,b){var c=new I,d=b;do a.a(d)&&Qa(c,d);while(d=d.parentNode);return c},!0);
-var lb=W("attribute",function(a,b){var c=new I,d=a.d();if("style"==d&&b.style&&B)return K(c,new D(b.style,b,"style",b.style.cssText)),c;var e=b.attributes;if(e)if(a instanceof L&&null===a.b||"*"==d)for(var d=0,f;f=e[d];d++)B?f.nodeValue&&K(c,xa(b,f)):K(c,f);else(f=e.getNamedItem(d))&&(B?f.nodeValue&&K(c,xa(b,f)):K(c,f));return c},!1),sb=W("child",function(a,b,c,d,e){return(B?Ma:Na).call(null,a,b,n(c)?c:null,n(d)?d:null,e||new I)},!1,!0);W("descendant",Ha,!1,!0);
-var tb=W("descendant-or-self",function(a,b,c,d){var e=new I;H(b,c,d)&&a.a(b)&&K(e,b);return Ha(a,b,c,d,e)},!1,!0),pb=W("following",function(a,b,c,d){var e=new I;do for(var f=b;f=f.nextSibling;)H(f,c,d)&&a.a(f)&&K(e,f),e=Ha(a,f,c,d,e);while(b=b.parentNode);return e},!1,!0);W("following-sibling",function(a,b){for(var c=new I,d=b;d=d.nextSibling;)a.a(d)&&K(c,d);return c},!1);W("namespace",function(){return new I},!1);
-var wb=W("parent",function(a,b){var c=new I;if(9==b.nodeType)return c;if(2==b.nodeType)return K(c,b.ownerElement),c;var d=b.parentNode;a.a(d)&&K(c,d);return c},!1),qb=W("preceding",function(a,b,c,d){var e=new I,f=[];do f.unshift(b);while(b=b.parentNode);for(var g=1,l=f.length;g<l;g++){var p=[];for(b=f[g];b=b.previousSibling;)p.unshift(b);for(var x=0,C=p.length;x<C;x++)b=p[x],H(b,c,d)&&a.a(b)&&K(e,b),e=Ha(a,b,c,d,e)}return e},!0,!0);
-W("preceding-sibling",function(a,b){for(var c=new I,d=b;d=d.previousSibling;)a.a(d)&&Qa(c,d);return c},!0);var xb=W("self",function(a,b){var c=new I;a.a(b)&&K(c,b);return c},!1);function yb(a){s.call(this,1);this.c=a;this.f=a.f;this.b=a.b}r(yb);yb.prototype.a=function(a){return-P(this.c,a)};yb.prototype.toString=function(){return"Unary Expression: -"+O(this.c)};function zb(a){s.call(this,4);this.c=a;Xa(this,ha(this.c,function(a){return a.f}));Ya(this,ha(this.c,function(a){return a.b}))}r(zb);zb.prototype.a=function(a){var b=new I;v(this.c,function(c){c=c.a(a);if(!(c instanceof I))throw Error("Path expression must evaluate to NodeSet.");b=Pa(b,c)});return b};zb.prototype.toString=function(){return w(this.c,function(a,b){return a+O(b)},"Union Expression:")};function Ab(a,b){this.a=a;this.b=b}function Bb(a){for(var b,c=[];;){X(a,"Missing right hand side of binary expression.");b=Cb(a);var d=F(a.a);if(!d)break;var e=(d=bb[d]||null)&&d.p;if(!e){a.a.a--;break}for(;c.length&&e<=c[c.length-1].p;)b=new Za(c.pop(),c.pop(),b);c.push(b,d)}for(;c.length;)b=new Za(c.pop(),c.pop(),b);return b}function X(a,b){if(Ca(a.a))throw Error(b);}function Db(a,b){var c=F(a.a);if(c!=b)throw Error("Bad token, expected: "+b+" got: "+c);}
-function Eb(a){a=F(a.a);if(")"!=a)throw Error("Bad token: "+a);}function Fb(a){a=F(a.a);if(2>a.length)throw Error("Unclosed literal string");return new ib(a)}function Gb(a){var b=F(a.a),c=b.indexOf(":");if(-1==c)return new J(b);var d=b.substring(0,c);a=a.b(d);if(!a)throw Error("Namespace prefix not declared: "+d);b=b.substr(c+1);return new J(b,a)}
-function Hb(a){var b,c=[],d;if(ob(E(a.a))){b=F(a.a);d=E(a.a);if("/"==b&&(Ca(a.a)||"."!=d&&".."!=d&&"@"!=d&&"*"!=d&&!/(?![0-9])[\w]/.test(d)))return new mb;d=new mb;X(a,"Missing next location step.");b=Ib(a,b);c.push(b)}else{n:{b=E(a.a);d=b.charAt(0);switch(d){case "$":throw Error("Variable reference not allowed in HTML XPath");case "(":F(a.a);b=Bb(a);X(a,'unclosed "("');Db(a,")");break;case '"':case "'":b=Fb(a);break;default:if(isNaN(+b))if(!hb(b)&&/(?![0-9])[\w]/.test(d)&&"("==E(a.a,1)){b=F(a.a);
-b=gb[b]||null;F(a.a);for(d=[];")"!=E(a.a);){X(a,"Missing function argument list.");d.push(Bb(a));if(","!=E(a.a))break;F(a.a)}X(a,"Unclosed function argument list.");Eb(a);b=new eb(b,d)}else{b=null;break n}else b=new jb(+F(a.a))}"["==E(a.a)&&(d=new rb(Jb(a)),b=new cb(b,d))}if(b)if(ob(E(a.a)))d=b;else return b;else b=Ib(a,"/"),d=new nb,c.push(b)}for(;ob(E(a.a));)b=F(a.a),X(a,"Missing next location step."),b=Ib(a,b),c.push(b);return new kb(d,c)}
-function Ib(a,b){var c,d,e;if("/"!=b&&"//"!=b)throw Error('Step op should be "/" or "//"');if("."==E(a.a))return d=new V(xb,new L("node")),F(a.a),d;if(".."==E(a.a))return d=new V(wb,new L("node")),F(a.a),d;var f;if("@"==E(a.a))f=lb,F(a.a),X(a,"Missing attribute name");else if("::"==E(a.a,1)){if(!/(?![0-9])[\w]/.test(E(a.a).charAt(0)))throw Error("Bad token: "+F(a.a));c=F(a.a);f=vb[c]||null;if(!f)throw Error("No axis with name: "+c);F(a.a);X(a,"Missing node name")}else f=sb;c=E(a.a);if(/(?![0-9])[\w]/.test(c.charAt(0)))if("("==
-E(a.a,1)){if(!hb(c))throw Error("Invalid node type: "+c);c=F(a.a);if(!hb(c))throw Error("Invalid type name: "+c);Db(a,"(");X(a,"Bad nodetype");e=E(a.a).charAt(0);var g=null;if('"'==e||"'"==e)g=Fb(a);X(a,"Bad nodetype");Eb(a);c=new L(c,g)}else c=Gb(a);else if("*"==c)c=Gb(a);else throw Error("Bad token: "+F(a.a));e=new rb(Jb(a),f.a);return d||new V(f,c,e,"//"==b)}
-function Jb(a){for(var b=[];"["==E(a.a);){F(a.a);X(a,"Missing predicate expression.");var c=Bb(a);b.push(c);X(a,"Unclosed predicate expression.");Db(a,"]")}return b}function Cb(a){if("-"==E(a.a))return F(a.a),new yb(Cb(a));var b=Hb(a);if("|"!=E(a.a))a=b;else{for(b=[b];"|"==F(a.a);)X(a,"Missing next union location path."),b.push(Hb(a));a.a.a--;a=new zb(b)}return a};function Kb(a,b){if(!a.length)throw Error("Empty XPath expression.");var c=za(a);if(Ca(c))throw Error("Invalid XPath expression.");b?"function"==aa(b)||(b=q(b.lookupNamespaceURI,b)):b=k(null);var d=Bb(new Ab(c,b));if(!Ca(c))throw Error("Bad token: "+F(c));this.evaluate=function(a,b){var c=d.a(new t(a));return new Y(c,b)}}
-function Y(a,b){if(0==b)if(a instanceof I)b=4;else if("string"==typeof a)b=2;else if("number"==typeof a)b=1;else if("boolean"==typeof a)b=3;else throw Error("Unexpected evaluation result.");if(2!=b&&1!=b&&3!=b&&!(a instanceof I))throw Error("value could not be converted to the specified type");this.resultType=b;var c;switch(b){case 2:this.stringValue=a instanceof I?Sa(a):""+a;break;case 1:this.numberValue=a instanceof I?+Sa(a):+a;break;case 3:this.booleanValue=a instanceof I?0<a.i:!!a;break;case 4:case 5:case 6:case 7:var d=
-M(a);c=[];for(var e=N(d);e;e=N(d))c.push(e instanceof D?e.a:e);this.snapshotLength=a.i;this.invalidIteratorState=!1;break;case 8:case 9:d=Ra(a);this.singleNodeValue=d instanceof D?d.a:d;break;default:throw Error("Unknown XPathResult type.");}var f=0;this.iterateNext=function(){if(4!=b&&5!=b)throw Error("iterateNext called with wrong result type");return f>=c.length?null:c[f++]};this.snapshotItem=function(a){if(6!=b&&7!=b)throw Error("snapshotItem called with wrong result type");return a>=c.length||
-0>a?null:c[a]}}Y.ANY_TYPE=0;Y.NUMBER_TYPE=1;Y.STRING_TYPE=2;Y.BOOLEAN_TYPE=3;Y.UNORDERED_NODE_ITERATOR_TYPE=4;Y.ORDERED_NODE_ITERATOR_TYPE=5;Y.UNORDERED_NODE_SNAPSHOT_TYPE=6;Y.ORDERED_NODE_SNAPSHOT_TYPE=7;Y.ANY_UNORDERED_NODE_TYPE=8;Y.FIRST_ORDERED_NODE_TYPE=9;function Lb(a){this.lookupNamespaceURI=Ua(a)}
-function Mb(a){a=a||m;var b=a.document;b.evaluate||(a.XPathResult=Y,b.evaluate=function(a,b,e,f){return(new Kb(a,e)).evaluate(b,f)},b.createExpression=function(a,b){return new Kb(a,b)},b.createNSResolver=function(a){return new Lb(a)})}var Nb=["wgxpath","install"],Z=m;Nb[0]in Z||!Z.execScript||Z.execScript("var "+Nb[0]);for(var Ob;Nb.length&&(Ob=Nb.shift());)Nb.length||void 0===Mb?Z[Ob]?Z=Z[Ob]:Z=Z[Ob]={}:Z[Ob]=Mb;})()
+else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function n(a){return"string"==typeof a}function ba(a,b,c){return a.call.apply(a.bind,arguments)}function da(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}
+function q(a,b,c){q=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ba:da;return q.apply(null,arguments)}function ea(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}
+function r(a){var b=t;function c(){}c.prototype=b.prototype;a.u=b.prototype;a.prototype=new c;a.t=function(a,c,f){for(var g=Array(arguments.length-2),k=2;k<arguments.length;k++)g[k-2]=arguments[k];return b.prototype[c].apply(a,g)}}Function.prototype.bind=Function.prototype.bind||function(a,b){if(1<arguments.length){var c=Array.prototype.slice.call(arguments,1);c.unshift(this,a);return q.apply(null,c)}return q(this,a)};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function u(a,b,c){this.a=a;this.b=b||1;this.d=c||1};var fa=String.prototype.trim?function(a){return a.trim()}:function(a){return a.replace(/^[\s\xa0]+|[\s\xa0]+$/g,"")};function v(a,b){return-1!=a.indexOf(b)}function ga(a,b){return a<b?-1:a>b?1:0};var w=Array.prototype,ha=w.indexOf?function(a,b,c){return w.indexOf.call(a,b,c)}:function(a,b,c){c=null==c?0:0>c?Math.max(0,a.length+c):c;if(n(a))return n(b)&&1==b.length?a.indexOf(b,c):-1;for(;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1},x=w.forEach?function(a,b,c){w.forEach.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=n(a)?a.split(""):a,f=0;f<d;f++)f in e&&b.call(c,e[f],f,a)},ia=w.filter?function(a,b,c){return w.filter.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=[],f=0,g=n(a)?
+a.split(""):a,k=0;k<d;k++)if(k in g){var p=g[k];b.call(c,p,k,a)&&(e[f++]=p)}return e},z=w.reduce?function(a,b,c,d){d&&(b=q(b,d));return w.reduce.call(a,b,c)}:function(a,b,c,d){var e=c;x(a,function(c,g){e=b.call(d,e,c,g,a)});return e},ja=w.some?function(a,b,c){return w.some.call(a,b,c)}:function(a,b,c){for(var d=a.length,e=n(a)?a.split(""):a,f=0;f<d;f++)if(f in e&&b.call(c,e[f],f,a))return!0;return!1};
+function ka(a,b){var c;a:{c=a.length;for(var d=n(a)?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){c=e;break a}c=-1}return 0>c?null:n(a)?a.charAt(c):a[c]}function la(a){return w.concat.apply(w,arguments)}function ma(a,b,c){return 2>=arguments.length?w.slice.call(a,b):w.slice.call(a,b,c)};function na(a){var b=arguments.length;if(1==b&&"array"==aa(arguments[0]))return na.apply(null,arguments[0]);for(var c={},d=0;d<b;d++)c[arguments[d]]=!0;return c};var A;a:{var oa=m.navigator;if(oa){var pa=oa.userAgent;if(pa){A=pa;break a}}A=""};function B(){return v(A,"Edge")};var qa=v(A,"Opera")||v(A,"OPR"),C=v(A,"Edge")||v(A,"Trident")||v(A,"MSIE"),ra=v(A,"Gecko")&&!(v(A.toLowerCase(),"webkit")&&!B())&&!(v(A,"Trident")||v(A,"MSIE"))&&!B(),sa=v(A.toLowerCase(),"webkit")&&!B();function ta(){var a=A;if(ra)return/rv\:([^\);]+)(\)|;)/.exec(a);if(C&&B())return/Edge\/([\d\.]+)/.exec(a);if(C)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(sa)return/WebKit\/(\S+)/.exec(a)}function ua(){var a=m.document;return a?a.documentMode:void 0}
+var va=function(){if(qa&&m.opera){var a=m.opera.version;return"function"==aa(a)?a():a}var a="",b=ta();b&&(a=b?b[1]:"");return C&&!B()&&(b=ua(),b>parseFloat(a))?String(b):a}(),wa={};
+function xa(a){if(!wa[a]){for(var b=0,c=fa(String(va)).split("."),d=fa(String(a)).split("."),e=Math.max(c.length,d.length),f=0;0==b&&f<e;f++){var g=c[f]||"",k=d[f]||"",p=RegExp("(\\d*)(\\D*)","g"),y=RegExp("(\\d*)(\\D*)","g");do{var F=p.exec(g)||["","",""],ca=y.exec(k)||["","",""];if(0==F[0].length&&0==ca[0].length)break;b=ga(0==F[1].length?0:parseInt(F[1],10),0==ca[1].length?0:parseInt(ca[1],10))||ga(0==F[2].length,0==ca[2].length)||ga(F[2],ca[2])}while(0==b)}wa[a]=0<=b}}
+function ya(a){return C&&(B()||za>=a)}var Aa=m.document,Ba=ua(),za=!Aa||!C||!Ba&&B()?void 0:Ba||("CSS1Compat"==Aa.compatMode?parseInt(va,10):5);/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+var D=C&&!ya(9),Ca=C&&!ya(8);/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function E(a,b,c,d){this.a=a;this.nodeName=c;this.nodeValue=d;this.nodeType=2;this.parentNode=this.ownerElement=b}function Da(a,b){var c=Ca&&"href"==b.nodeName?a.getAttribute(b.nodeName,2):b.nodeValue;return new E(b,a,b.nodeName,c)};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function Ea(a){this.b=a;this.a=0}function Fa(a){a=a.match(Ga);for(var b=0;b<a.length;b++)Ha.test(a[b])&&a.splice(b,1);return new Ea(a)}var Ga=RegExp("\\$?(?:(?![0-9-])[\\w-]+:)?(?![0-9-])[\\w-]+|\\/\\/|\\.\\.|::|\\d+(?:\\.\\d*)?|\\.\\d+|\"[^\"]*\"|'[^']*'|[!<>]=|\\s+|.","g"),Ha=/^\s/;function G(a,b){return a.b[a.a+(b||0)]}function H(a){return a.b[a.a++]}function Ia(a){return a.b.length<=a.a};na("area base br col command embed hr img input keygen link meta param source track wbr".split(" "));!ra&&!C||C&&ya(9)||ra&&xa("1.9.1");C&&xa("9");function Ja(a,b){if(a.contains&&1==b.nodeType)return a==b||a.contains(b);if("undefined"!=typeof a.compareDocumentPosition)return a==b||Boolean(a.compareDocumentPosition(b)&16);for(;b&&a!=b;)b=b.parentNode;return b==a}
+function Ka(a,b){if(a==b)return 0;if(a.compareDocumentPosition)return a.compareDocumentPosition(b)&2?1:-1;if(C&&!ya(9)){if(9==a.nodeType)return-1;if(9==b.nodeType)return 1}if("sourceIndex"in a||a.parentNode&&"sourceIndex"in a.parentNode){var c=1==a.nodeType,d=1==b.nodeType;if(c&&d)return a.sourceIndex-b.sourceIndex;var e=a.parentNode,f=b.parentNode;return e==f?La(a,b):!c&&Ja(e,b)?-1*Ma(a,b):!d&&Ja(f,a)?Ma(b,a):(c?a.sourceIndex:e.sourceIndex)-(d?b.sourceIndex:f.sourceIndex)}d=9==a.nodeType?a:a.ownerDocument||
+a.document;c=d.createRange();c.selectNode(a);c.collapse(!0);d=d.createRange();d.selectNode(b);d.collapse(!0);return c.compareBoundaryPoints(m.Range.START_TO_END,d)}function Ma(a,b){var c=a.parentNode;if(c==b)return-1;for(var d=b;d.parentNode!=c;)d=d.parentNode;return La(d,a)}function La(a,b){for(var c=b;c=c.previousSibling;)if(c==a)return-1;return 1};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function I(a){var b=null,c=a.nodeType;1==c&&(b=a.textContent,b=void 0==b||null==b?a.innerText:b,b=void 0==b||null==b?"":b);if("string"!=typeof b)if(D&&"title"==a.nodeName.toLowerCase()&&1==c)b=a.text;else if(9==c||1==c){a=9==c?a.documentElement:a.firstChild;for(var c=0,d=[],b="";a;){do 1!=a.nodeType&&(b+=a.nodeValue),D&&"title"==a.nodeName.toLowerCase()&&(b+=a.text),d[c++]=a;while(a=a.firstChild);for(;c&&!(a=d[--c].nextSibling););}}else b=a.nodeValue;return""+b}
+function J(a,b,c){if(null===b)return!0;try{if(!a.getAttribute)return!1}catch(d){return!1}Ca&&"class"==b&&(b="className");return null==c?!!a.getAttribute(b):a.getAttribute(b,2)==c}function Na(a,b,c,d,e){return(D?Oa:Pa).call(null,a,b,n(c)?c:null,n(d)?d:null,e||new K)}
+function Oa(a,b,c,d,e){if(a instanceof L||8==a.b||c&&null===a.b){var f=b.all;if(!f)return e;a=Qa(a);if("*"!=a&&(f=b.getElementsByTagName(a),!f))return e;if(c){for(var g=[],k=0;b=f[k++];)J(b,c,d)&&g.push(b);f=g}for(k=0;b=f[k++];)"*"==a&&"!"==b.tagName||M(e,b);return e}Ra(a,b,c,d,e);return e}
+function Pa(a,b,c,d,e){b.getElementsByName&&d&&"name"==c&&!C?(b=b.getElementsByName(d),x(b,function(b){a.a(b)&&M(e,b)})):b.getElementsByClassName&&d&&"class"==c?(b=b.getElementsByClassName(d),x(b,function(b){b.className==d&&a.a(b)&&M(e,b)})):a instanceof N?Ra(a,b,c,d,e):b.getElementsByTagName&&(b=b.getElementsByTagName(a.d()),x(b,function(a){J(a,c,d)&&M(e,a)}));return e}
+function Sa(a,b,c,d,e){var f;if((a instanceof L||8==a.b||c&&null===a.b)&&(f=b.childNodes)){var g=Qa(a);if("*"!=g&&(f=ia(f,function(a){return a.tagName&&a.tagName.toLowerCase()==g}),!f))return e;c&&(f=ia(f,function(a){return J(a,c,d)}));x(f,function(a){"*"==g&&("!"==a.tagName||"*"==g&&1!=a.nodeType)||M(e,a)});return e}return Ta(a,b,c,d,e)}function Ta(a,b,c,d,e){for(b=b.firstChild;b;b=b.nextSibling)J(b,c,d)&&a.a(b)&&M(e,b);return e}
+function Ra(a,b,c,d,e){for(b=b.firstChild;b;b=b.nextSibling)J(b,c,d)&&a.a(b)&&M(e,b),Ra(a,b,c,d,e)}function Qa(a){if(a instanceof N){if(8==a.b)return"!";if(null===a.b)return"*"}return a.d()};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function K(){this.b=this.a=null;this.i=0}function Ua(a){this.d=a;this.a=this.b=null}function Va(a,b){if(!a.a)return b;if(!b.a)return a;for(var c=a.a,d=b.a,e=null,f=null,g=0;c&&d;){var f=c.d,k=d.d;f==k||f instanceof E&&k instanceof E&&f.a==k.a?(f=c,c=c.a,d=d.a):0<Ka(c.d,d.d)?(f=d,d=d.a):(f=c,c=c.a);(f.b=e)?e.a=f:a.a=f;e=f;g++}for(f=c||d;f;)f.b=e,e=e.a=f,g++,f=f.a;a.b=e;a.i=g;return a}function Wa(a,b){var c=new Ua(b);c.a=a.a;a.b?a.a.b=c:a.a=a.b=c;a.a=c;a.i++}
+function M(a,b){var c=new Ua(b);c.b=a.b;a.a?a.b.a=c:a.a=a.b=c;a.b=c;a.i++}function Xa(a){return(a=a.a)?a.d:null}function Ya(a){return(a=Xa(a))?I(a):""}function O(a,b){return new Za(a,!!b)}function Za(a,b){this.d=a;this.b=(this.c=b)?a.b:a.a;this.a=null}function P(a){var b=a.b;if(null==b)return null;var c=a.a=b;a.b=a.c?b.b:b.a;return c.d};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function $a(a){switch(a.nodeType){case 1:return ea(ab,a);case 9:return $a(a.documentElement);case 11:case 10:case 6:case 12:return bb;default:return a.parentNode?$a(a.parentNode):bb}}function bb(){return null}function ab(a,b){if(a.prefix==b)return a.namespaceURI||"http://www.w3.org/1999/xhtml";var c=a.getAttributeNode("xmlns:"+b);return c&&c.specified?c.value||null:a.parentNode&&9!=a.parentNode.nodeType?ab(a.parentNode,b):null};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function t(a){this.g=a;this.b=this.e=!1;this.d=null}function Q(a){return"\n  "+a.toString().split("\n").join("\n  ")}function cb(a,b){a.e=b}function db(a,b){a.b=b}function R(a,b){var c=a.a(b);return c instanceof K?+Ya(c):+c}function S(a,b){var c=a.a(b);return c instanceof K?Ya(c):""+c}function eb(a,b){var c=a.a(b);return c instanceof K?!!c.i:!!c};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function fb(a,b,c){t.call(this,a.g);this.c=a;this.f=b;this.k=c;this.e=b.e||c.e;this.b=b.b||c.b;this.c==gb&&(c.b||c.e||4==c.g||0==c.g||!b.d?b.b||b.e||4==b.g||0==b.g||!c.d||(this.d={name:c.d.name,l:b}):this.d={name:b.d.name,l:c})}r(fb);
+function hb(a,b,c,d,e){b=b.a(d);c=c.a(d);var f;if(b instanceof K&&c instanceof K){e=O(b);for(d=P(e);d;d=P(e))for(b=O(c),f=P(b);f;f=P(b))if(a(I(d),I(f)))return!0;return!1}if(b instanceof K||c instanceof K){b instanceof K?e=b:(e=c,c=b);e=O(e);b=typeof c;for(d=P(e);d;d=P(e)){switch(b){case "number":d=+I(d);break;case "boolean":d=!!I(d);break;case "string":d=I(d);break;default:throw Error("Illegal primitive type for comparison.");}if(a(d,c))return!0}return!1}return e?"boolean"==typeof b||"boolean"==typeof c?
+a(!!b,!!c):"number"==typeof b||"number"==typeof c?a(+b,+c):a(b,c):a(+b,+c)}fb.prototype.a=function(a){return this.c.j(this.f,this.k,a)};fb.prototype.toString=function(){var a="Binary Expression: "+this.c,a=a+Q(this.f);return a+=Q(this.k)};function ib(a,b,c,d){this.a=a;this.p=b;this.g=c;this.j=d}ib.prototype.toString=h("a");var jb={};function T(a,b,c,d){if(jb.hasOwnProperty(a))throw Error("Binary operator already created: "+a);a=new ib(a,b,c,d);return jb[a.toString()]=a}
+T("div",6,1,function(a,b,c){return R(a,c)/R(b,c)});T("mod",6,1,function(a,b,c){return R(a,c)%R(b,c)});T("*",6,1,function(a,b,c){return R(a,c)*R(b,c)});T("+",5,1,function(a,b,c){return R(a,c)+R(b,c)});T("-",5,1,function(a,b,c){return R(a,c)-R(b,c)});T("<",4,2,function(a,b,c){return hb(function(a,b){return a<b},a,b,c)});T(">",4,2,function(a,b,c){return hb(function(a,b){return a>b},a,b,c)});T("<=",4,2,function(a,b,c){return hb(function(a,b){return a<=b},a,b,c)});
+T(">=",4,2,function(a,b,c){return hb(function(a,b){return a>=b},a,b,c)});var gb=T("=",3,2,function(a,b,c){return hb(function(a,b){return a==b},a,b,c,!0)});T("!=",3,2,function(a,b,c){return hb(function(a,b){return a!=b},a,b,c,!0)});T("and",2,2,function(a,b,c){return eb(a,c)&&eb(b,c)});T("or",1,2,function(a,b,c){return eb(a,c)||eb(b,c)});/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function kb(a,b){if(b.a.length&&4!=a.g)throw Error("Primary expression must evaluate to nodeset if filter has predicate(s).");t.call(this,a.g);this.c=a;this.f=b;this.e=a.e;this.b=a.b}r(kb);kb.prototype.a=function(a){a=this.c.a(a);return lb(this.f,a)};kb.prototype.toString=function(){var a;a="Filter:"+Q(this.c);return a+=Q(this.f)};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function mb(a,b){if(b.length<a.o)throw Error("Function "+a.h+" expects at least"+a.o+" arguments, "+b.length+" given");if(null!==a.n&&b.length>a.n)throw Error("Function "+a.h+" expects at most "+a.n+" arguments, "+b.length+" given");a.s&&x(b,function(b,d){if(4!=b.g)throw Error("Argument "+d+" to function "+a.h+" is not of type Nodeset: "+b);});t.call(this,a.g);this.f=a;this.c=b;cb(this,a.e||ja(b,function(a){return a.e}));db(this,a.r&&!b.length||a.q&&!!b.length||ja(b,function(a){return a.b}))}r(mb);
+mb.prototype.a=function(a){return this.f.j.apply(null,la(a,this.c))};mb.prototype.toString=function(){var a="Function: "+this.f;if(this.c.length)var b=z(this.c,function(a,b){return a+Q(b)},"Arguments:"),a=a+Q(b);return a};function nb(a,b,c,d,e,f,g,k,p){this.h=a;this.g=b;this.e=c;this.r=d;this.q=e;this.j=f;this.o=g;this.n=void 0!==k?k:g;this.s=!!p}nb.prototype.toString=h("h");var ob={};
+function U(a,b,c,d,e,f,g,k){if(ob.hasOwnProperty(a))throw Error("Function already created: "+a+".");ob[a]=new nb(a,b,c,d,!1,e,f,g,k)}U("boolean",2,!1,!1,function(a,b){return eb(b,a)},1);U("ceiling",1,!1,!1,function(a,b){return Math.ceil(R(b,a))},1);U("concat",3,!1,!1,function(a,b){var c=ma(arguments,1);return z(c,function(b,c){return b+S(c,a)},"")},2,null);U("contains",2,!1,!1,function(a,b,c){return v(S(b,a),S(c,a))},2);U("count",1,!1,!1,function(a,b){return b.a(a).i},1,1,!0);
+U("false",2,!1,!1,l(!1),0);U("floor",1,!1,!1,function(a,b){return Math.floor(R(b,a))},1);U("id",4,!1,!1,function(a,b){function c(a){if(D){var b=e.all[a];if(b){if(b.nodeType&&a==b.id)return b;if(b.length)return ka(b,function(b){return a==b.id})}return null}return e.getElementById(a)}var d=a.a,e=9==d.nodeType?d:d.ownerDocument,d=S(b,a).split(/\s+/),f=[];x(d,function(a){a=c(a);!a||0<=ha(f,a)||f.push(a)});f.sort(Ka);var g=new K;x(f,function(a){M(g,a)});return g},1);U("lang",2,!1,!1,l(!1),1);
+U("last",1,!0,!1,function(a){if(1!=arguments.length)throw Error("Function last expects ()");return a.d},0);U("local-name",3,!1,!0,function(a,b){var c=b?Xa(b.a(a)):a.a;return c?c.localName||c.nodeName.toLowerCase():""},0,1,!0);U("name",3,!1,!0,function(a,b){var c=b?Xa(b.a(a)):a.a;return c?c.nodeName.toLowerCase():""},0,1,!0);U("namespace-uri",3,!0,!1,l(""),0,1,!0);U("normalize-space",3,!1,!0,function(a,b){return(b?S(b,a):I(a.a)).replace(/[\s\xa0]+/g," ").replace(/^\s+|\s+$/g,"")},0,1);
+U("not",2,!1,!1,function(a,b){return!eb(b,a)},1);U("number",1,!1,!0,function(a,b){return b?R(b,a):+I(a.a)},0,1);U("position",1,!0,!1,function(a){return a.b},0);U("round",1,!1,!1,function(a,b){return Math.round(R(b,a))},1);U("starts-with",2,!1,!1,function(a,b,c){b=S(b,a);a=S(c,a);return 0==b.lastIndexOf(a,0)},2);U("string",3,!1,!0,function(a,b){return b?S(b,a):I(a.a)},0,1);U("string-length",1,!1,!0,function(a,b){return(b?S(b,a):I(a.a)).length},0,1);
+U("substring",3,!1,!1,function(a,b,c,d){c=R(c,a);if(isNaN(c)||Infinity==c||-Infinity==c)return"";d=d?R(d,a):Infinity;if(isNaN(d)||-Infinity===d)return"";c=Math.round(c)-1;var e=Math.max(c,0);a=S(b,a);if(Infinity==d)return a.substring(e);b=Math.round(d);return a.substring(e,c+b)},2,3);U("substring-after",3,!1,!1,function(a,b,c){b=S(b,a);a=S(c,a);c=b.indexOf(a);return-1==c?"":b.substring(c+a.length)},2);
+U("substring-before",3,!1,!1,function(a,b,c){b=S(b,a);a=S(c,a);a=b.indexOf(a);return-1==a?"":b.substring(0,a)},2);U("sum",1,!1,!1,function(a,b){for(var c=O(b.a(a)),d=0,e=P(c);e;e=P(c))d+=+I(e);return d},1,1,!0);U("translate",3,!1,!1,function(a,b,c,d){b=S(b,a);c=S(c,a);var e=S(d,a);a=[];for(d=0;d<c.length;d++){var f=c.charAt(d);f in a||(a[f]=e.charAt(d))}c="";for(d=0;d<b.length;d++)f=b.charAt(d),c+=f in a?a[f]:f;return c},3);U("true",2,!1,!1,l(!0),0);/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function N(a,b){this.f=a;this.c=void 0!==b?b:null;this.b=null;switch(a){case "comment":this.b=8;break;case "text":this.b=3;break;case "processing-instruction":this.b=7;break;case "node":break;default:throw Error("Unexpected argument");}}function pb(a){return"comment"==a||"text"==a||"processing-instruction"==a||"node"==a}N.prototype.a=function(a){return null===this.b||this.b==a.nodeType};N.prototype.d=h("f");N.prototype.toString=function(){var a="Kind Test: "+this.f;null===this.c||(a+=Q(this.c));return a};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function qb(a){t.call(this,3);this.c=a.substring(1,a.length-1)}r(qb);qb.prototype.a=h("c");qb.prototype.toString=function(){return"Literal: "+this.c};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function L(a,b){this.h=a.toLowerCase();this.c=b?b.toLowerCase():"http://www.w3.org/1999/xhtml"}L.prototype.a=function(a){var b=a.nodeType;return 1!=b&&2!=b?!1:"*"!=this.h&&this.h!=a.nodeName.toLowerCase()?!1:this.c==(a.namespaceURI?a.namespaceURI.toLowerCase():"http://www.w3.org/1999/xhtml")};L.prototype.d=h("h");L.prototype.toString=function(){return"Name Test: "+("http://www.w3.org/1999/xhtml"==this.c?"":this.c+":")+this.h};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function rb(a){t.call(this,1);this.c=a}r(rb);rb.prototype.a=h("c");rb.prototype.toString=function(){return"Number: "+this.c};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function sb(a,b){t.call(this,a.g);this.f=a;this.c=b;this.e=a.e;this.b=a.b;if(1==this.c.length){var c=this.c[0];c.m||c.c!=tb||(c=c.k,"*"!=c.d()&&(this.d={name:c.d(),l:null}))}}r(sb);function ub(){t.call(this,4)}r(ub);ub.prototype.a=function(a){var b=new K;a=a.a;9==a.nodeType?M(b,a):M(b,a.ownerDocument);return b};ub.prototype.toString=l("Root Helper Expression");function vb(){t.call(this,4)}r(vb);vb.prototype.a=function(a){var b=new K;M(b,a.a);return b};vb.prototype.toString=l("Context Helper Expression");
+function wb(a){return"/"==a||"//"==a}sb.prototype.a=function(a){var b=this.f.a(a);if(!(b instanceof K))throw Error("Filter expression must evaluate to nodeset.");a=this.c;for(var c=0,d=a.length;c<d&&b.i;c++){var e=a[c],f=O(b,e.c.a),g;if(e.e||e.c!=xb)if(e.e||e.c!=yb)for(g=P(f),b=e.a(new u(g));null!=(g=P(f));)g=e.a(new u(g)),b=Va(b,g);else g=P(f),b=e.a(new u(g));else{for(g=P(f);(b=P(f))&&(!g.contains||g.contains(b))&&b.compareDocumentPosition(g)&8;g=b);b=e.a(new u(g))}}return b};
+sb.prototype.toString=function(){var a;a="Path Expression:"+Q(this.f);if(this.c.length){var b=z(this.c,function(a,b){return a+Q(b)},"Steps:");a+=Q(b)}return a};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function zb(a,b){this.a=a;this.b=!!b}
+function lb(a,b,c){for(c=c||0;c<a.a.length;c++)for(var d=a.a[c],e=O(b),f=b.i,g,k=0;g=P(e);k++){var p=a.b?f-k:k+1;g=d.a(new u(g,p,f));if("number"==typeof g)p=p==g;else if("string"==typeof g||"boolean"==typeof g)p=!!g;else if(g instanceof K)p=0<g.i;else throw Error("Predicate.evaluate returned an unexpected type.");if(!p){p=e;g=p.d;var y=p.a;if(!y)throw Error("Next must be called at least once before remove.");var F=y.b,y=y.a;F?F.a=y:g.a=y;y?y.b=F:g.b=F;g.i--;p.a=null}}return b}
+zb.prototype.toString=function(){return z(this.a,function(a,b){return a+Q(b)},"Predicates:")};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function V(a,b,c,d){t.call(this,4);this.c=a;this.k=b;this.f=c||new zb([]);this.m=!!d;b=this.f;b=0<b.a.length?b.a[0].d:null;a.b&&b&&(a=b.name,a=D?a.toLowerCase():a,this.d={name:a,l:b.l});a:{a=this.f;for(b=0;b<a.a.length;b++)if(c=a.a[b],c.e||1==c.g||0==c.g){a=!0;break a}a=!1}this.e=a}r(V);
+V.prototype.a=function(a){var b=a.a,c=null,c=this.d,d=null,e=null,f=0;c&&(d=c.name,e=c.l?S(c.l,a):null,f=1);if(this.m)if(this.e||this.c!=Ab)if(a=O((new V(Bb,new N("node"))).a(a)),b=P(a))for(c=this.j(b,d,e,f);null!=(b=P(a));)c=Va(c,this.j(b,d,e,f));else c=new K;else c=Na(this.k,b,d,e),c=lb(this.f,c,f);else c=this.j(a.a,d,e,f);return c};V.prototype.j=function(a,b,c,d){a=this.c.d(this.k,a,b,c);return a=lb(this.f,a,d)};
+V.prototype.toString=function(){var a;a="Step:"+Q("Operator: "+(this.m?"//":"/"));this.c.h&&(a+=Q("Axis: "+this.c));a+=Q(this.k);if(this.f.a.length){var b=z(this.f.a,function(a,b){return a+Q(b)},"Predicates:");a+=Q(b)}return a};function Cb(a,b,c,d){this.h=a;this.d=b;this.a=c;this.b=d}Cb.prototype.toString=h("h");var Db={};function W(a,b,c,d){if(Db.hasOwnProperty(a))throw Error("Axis already created: "+a);b=new Cb(a,b,c,!!d);return Db[a]=b}
+W("ancestor",function(a,b){for(var c=new K,d=b;d=d.parentNode;)a.a(d)&&Wa(c,d);return c},!0);W("ancestor-or-self",function(a,b){var c=new K,d=b;do a.a(d)&&Wa(c,d);while(d=d.parentNode);return c},!0);
+var tb=W("attribute",function(a,b){var c=new K,d=a.d();if("style"==d&&b.style&&D)return M(c,new E(b.style,b,"style",b.style.cssText)),c;var e=b.attributes;if(e)if(a instanceof N&&null===a.b||"*"==d)for(var d=0,f;f=e[d];d++)D?f.nodeValue&&M(c,Da(b,f)):M(c,f);else(f=e.getNamedItem(d))&&(D?f.nodeValue&&M(c,Da(b,f)):M(c,f));return c},!1),Ab=W("child",function(a,b,c,d,e){return(D?Sa:Ta).call(null,a,b,n(c)?c:null,n(d)?d:null,e||new K)},!1,!0);W("descendant",Na,!1,!0);
+var Bb=W("descendant-or-self",function(a,b,c,d){var e=new K;J(b,c,d)&&a.a(b)&&M(e,b);return Na(a,b,c,d,e)},!1,!0),xb=W("following",function(a,b,c,d){var e=new K;do for(var f=b;f=f.nextSibling;)J(f,c,d)&&a.a(f)&&M(e,f),e=Na(a,f,c,d,e);while(b=b.parentNode);return e},!1,!0);W("following-sibling",function(a,b){for(var c=new K,d=b;d=d.nextSibling;)a.a(d)&&M(c,d);return c},!1);W("namespace",function(){return new K},!1);
+var Eb=W("parent",function(a,b){var c=new K;if(9==b.nodeType)return c;if(2==b.nodeType)return M(c,b.ownerElement),c;var d=b.parentNode;a.a(d)&&M(c,d);return c},!1),yb=W("preceding",function(a,b,c,d){var e=new K,f=[];do f.unshift(b);while(b=b.parentNode);for(var g=1,k=f.length;g<k;g++){var p=[];for(b=f[g];b=b.previousSibling;)p.unshift(b);for(var y=0,F=p.length;y<F;y++)b=p[y],J(b,c,d)&&a.a(b)&&M(e,b),e=Na(a,b,c,d,e)}return e},!0,!0);
+W("preceding-sibling",function(a,b){for(var c=new K,d=b;d=d.previousSibling;)a.a(d)&&Wa(c,d);return c},!0);var Fb=W("self",function(a,b){var c=new K;a.a(b)&&M(c,b);return c},!1);/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function Gb(a){t.call(this,1);this.c=a;this.e=a.e;this.b=a.b}r(Gb);Gb.prototype.a=function(a){return-R(this.c,a)};Gb.prototype.toString=function(){return"Unary Expression: -"+Q(this.c)};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function Hb(a){t.call(this,4);this.c=a;cb(this,ja(this.c,function(a){return a.e}));db(this,ja(this.c,function(a){return a.b}))}r(Hb);Hb.prototype.a=function(a){var b=new K;x(this.c,function(c){c=c.a(a);if(!(c instanceof K))throw Error("Path expression must evaluate to NodeSet.");b=Va(b,c)});return b};Hb.prototype.toString=function(){return z(this.c,function(a,b){return a+Q(b)},"Union Expression:")};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function Ib(a,b){this.a=a;this.b=b}function Jb(a){for(var b,c=[];;){X(a,"Missing right hand side of binary expression.");b=Kb(a);var d=H(a.a);if(!d)break;var e=(d=jb[d]||null)&&d.p;if(!e){a.a.a--;break}for(;c.length&&e<=c[c.length-1].p;)b=new fb(c.pop(),c.pop(),b);c.push(b,d)}for(;c.length;)b=new fb(c.pop(),c.pop(),b);return b}function X(a,b){if(Ia(a.a))throw Error(b);}function Lb(a,b){var c=H(a.a);if(c!=b)throw Error("Bad token, expected: "+b+" got: "+c);}
+function Mb(a){a=H(a.a);if(")"!=a)throw Error("Bad token: "+a);}function Nb(a){a=H(a.a);if(2>a.length)throw Error("Unclosed literal string");return new qb(a)}function Ob(a){var b=H(a.a),c=b.indexOf(":");if(-1==c)return new L(b);var d=b.substring(0,c);a=a.b(d);if(!a)throw Error("Namespace prefix not declared: "+d);b=b.substr(c+1);return new L(b,a)}
+function Pb(a){var b,c=[],d;if(wb(G(a.a))){b=H(a.a);d=G(a.a);if("/"==b&&(Ia(a.a)||"."!=d&&".."!=d&&"@"!=d&&"*"!=d&&!/(?![0-9])[\w]/.test(d)))return new ub;d=new ub;X(a,"Missing next location step.");b=Qb(a,b);c.push(b)}else{a:{b=G(a.a);d=b.charAt(0);switch(d){case "$":throw Error("Variable reference not allowed in HTML XPath");case "(":H(a.a);b=Jb(a);X(a,'unclosed "("');Lb(a,")");break;case '"':case "'":b=Nb(a);break;default:if(isNaN(+b))if(!pb(b)&&/(?![0-9])[\w]/.test(d)&&"("==G(a.a,1)){b=H(a.a);
+b=ob[b]||null;H(a.a);for(d=[];")"!=G(a.a);){X(a,"Missing function argument list.");d.push(Jb(a));if(","!=G(a.a))break;H(a.a)}X(a,"Unclosed function argument list.");Mb(a);b=new mb(b,d)}else{b=null;break a}else b=new rb(+H(a.a))}"["==G(a.a)&&(d=new zb(Rb(a)),b=new kb(b,d))}if(b)if(wb(G(a.a)))d=b;else return b;else b=Qb(a,"/"),d=new vb,c.push(b)}for(;wb(G(a.a));)b=H(a.a),X(a,"Missing next location step."),b=Qb(a,b),c.push(b);return new sb(d,c)}
+function Qb(a,b){var c,d,e;if("/"!=b&&"//"!=b)throw Error('Step op should be "/" or "//"');if("."==G(a.a))return d=new V(Fb,new N("node")),H(a.a),d;if(".."==G(a.a))return d=new V(Eb,new N("node")),H(a.a),d;var f;if("@"==G(a.a))f=tb,H(a.a),X(a,"Missing attribute name");else if("::"==G(a.a,1)){if(!/(?![0-9])[\w]/.test(G(a.a).charAt(0)))throw Error("Bad token: "+H(a.a));c=H(a.a);f=Db[c]||null;if(!f)throw Error("No axis with name: "+c);H(a.a);X(a,"Missing node name")}else f=Ab;c=G(a.a);if(/(?![0-9])[\w]/.test(c.charAt(0)))if("("==
+G(a.a,1)){if(!pb(c))throw Error("Invalid node type: "+c);c=H(a.a);if(!pb(c))throw Error("Invalid type name: "+c);Lb(a,"(");X(a,"Bad nodetype");e=G(a.a).charAt(0);var g=null;if('"'==e||"'"==e)g=Nb(a);X(a,"Bad nodetype");Mb(a);c=new N(c,g)}else c=Ob(a);else if("*"==c)c=Ob(a);else throw Error("Bad token: "+H(a.a));e=new zb(Rb(a),f.a);return d||new V(f,c,e,"//"==b)}
+function Rb(a){for(var b=[];"["==G(a.a);){H(a.a);X(a,"Missing predicate expression.");var c=Jb(a);b.push(c);X(a,"Unclosed predicate expression.");Lb(a,"]")}return b}function Kb(a){if("-"==G(a.a))return H(a.a),new Gb(Kb(a));var b=Pb(a);if("|"!=G(a.a))a=b;else{for(b=[b];"|"==H(a.a);)X(a,"Missing next union location path."),b.push(Pb(a));a.a.a--;a=new Hb(b)}return a};/*
+
+ Copyright 2014 Software Freedom Conservancy
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+function Sb(a,b){if(!a.length)throw Error("Empty XPath expression.");var c=Fa(a);if(Ia(c))throw Error("Invalid XPath expression.");b?"function"==aa(b)||(b=q(b.lookupNamespaceURI,b)):b=l(null);var d=Jb(new Ib(c,b));if(!Ia(c))throw Error("Bad token: "+H(c));this.evaluate=function(a,b){var c=d.a(new u(a));return new Y(c,b)}}
+function Y(a,b){if(0==b)if(a instanceof K)b=4;else if("string"==typeof a)b=2;else if("number"==typeof a)b=1;else if("boolean"==typeof a)b=3;else throw Error("Unexpected evaluation result.");if(2!=b&&1!=b&&3!=b&&!(a instanceof K))throw Error("value could not be converted to the specified type");this.resultType=b;var c;switch(b){case 2:this.stringValue=a instanceof K?Ya(a):""+a;break;case 1:this.numberValue=a instanceof K?+Ya(a):+a;break;case 3:this.booleanValue=a instanceof K?0<a.i:!!a;break;case 4:case 5:case 6:case 7:var d=
+O(a);c=[];for(var e=P(d);e;e=P(d))c.push(e instanceof E?e.a:e);this.snapshotLength=a.i;this.invalidIteratorState=!1;break;case 8:case 9:d=Xa(a);this.singleNodeValue=d instanceof E?d.a:d;break;default:throw Error("Unknown XPathResult type.");}var f=0;this.iterateNext=function(){if(4!=b&&5!=b)throw Error("iterateNext called with wrong result type");return f>=c.length?null:c[f++]};this.snapshotItem=function(a){if(6!=b&&7!=b)throw Error("snapshotItem called with wrong result type");return a>=c.length||
+0>a?null:c[a]}}Y.ANY_TYPE=0;Y.NUMBER_TYPE=1;Y.STRING_TYPE=2;Y.BOOLEAN_TYPE=3;Y.UNORDERED_NODE_ITERATOR_TYPE=4;Y.ORDERED_NODE_ITERATOR_TYPE=5;Y.UNORDERED_NODE_SNAPSHOT_TYPE=6;Y.ORDERED_NODE_SNAPSHOT_TYPE=7;Y.ANY_UNORDERED_NODE_TYPE=8;Y.FIRST_ORDERED_NODE_TYPE=9;function Tb(a){this.lookupNamespaceURI=$a(a)}
+function Ub(a){a=a||m;var b=a.document;b.evaluate||(a.XPathResult=Y,b.evaluate=function(a,b,e,f){return(new Sb(a,e)).evaluate(b,f)},b.createExpression=function(a,b){return new Sb(a,b)},b.createNSResolver=function(a){return new Tb(a)})}var Vb=["wgxpath","install"],Z=m;Vb[0]in Z||!Z.execScript||Z.execScript("var "+Vb[0]);for(var Wb;Vb.length&&(Wb=Vb.shift());)Vb.length||void 0===Ub?Z[Wb]?Z=Z[Wb]:Z=Z[Wb]={}:Z[Wb]=Ub;})()
 
 // Export for Node.js.
 module.exports.install = wgxpath.install;
