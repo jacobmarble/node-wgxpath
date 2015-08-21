@@ -8,7 +8,7 @@ Version
 
 `x.y.z`: `x.y` refers to the Wicked Good XPath revision when `wgxpath.install.js` was built; `z` refers to any improvements to this package.
 
-I'm pretty lazy, so I didn't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](https://github.com/google/wicked-good-xpath/releases/latest) is updated, I'll update this package.
+I'm pretty lazy, so I don't build Wicked Good XPath myself. When the pre-compiled [wgxpath.install.js](https://github.com/google/wicked-good-xpath/releases/latest) is updated, I'll update this package.
 
 Installation
 ------------
@@ -24,7 +24,11 @@ Make sure things are working:
 Example
 -------
 
-This example scrapes the [Merriam-Webster Word of the Day](http://www.merriam-webster.com/word-of-the-day/). This code can also be found in `word_of_the_day.js`.
+This example scrapes the [Merriam-Webster Word of the Day](http://www.merriam-webster.com/word-of-the-day/). This code can also be found in `word_of_the_day.js`. Be sure to install jsdom 3.x before running the example.
+
+```sh
+$ npm install jsdom@"<4"
+```
 
 ```javascript
 var wgxpath = require('wgxpath');
